@@ -58,6 +58,9 @@ Vue.component(SwipeItem.name, SwipeItem)
 
 Vue.config.productionTip = false
 
+import axios from "axios";
+Vue.prototype.$axios = axios;
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

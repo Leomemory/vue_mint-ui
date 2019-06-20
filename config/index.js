@@ -11,10 +11,18 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/rest': {
-            target: 'http://yinxiaohua-h5.test.cashbus.com',
-            changeOrigin: true
+      // '/rest': {
+      //       target: 'http://yinxiaohua-h5.test.cashbus.com',
+      //       changeOrigin: true
+      //   }
+
+      '/apis':{
+        target:'http://utf8.api.smschinese.cn/',
+        changeOrigin: true,
+        pathRewrite:{
+          '^/apis':''
         }
+      }
     },
 
     // Various Dev Server settings
