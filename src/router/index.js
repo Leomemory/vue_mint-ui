@@ -56,6 +56,7 @@ ROUTER.beforeEach((to, from, next) => {
   window.scrollTo(0, 0)
   const {title, isFree} = to.meta
   if (!isFree) {
+      unAuthRedirect(to)
       return
   }
   next()
@@ -66,5 +67,11 @@ ROUTER.afterEach((to, from) => {
   document.title = title || '商城'
 })
 
-
 export default ROUTER;
+let authWorking = false
+export function unAuthRedirect(to){
+   if (authWorking) {
+      return
+  }
+  ROUTER.push({name: 'login', query: {redirect: to.fullPath}})
+}
